@@ -1,4 +1,6 @@
 import 'package:test/test.dart';
+import 'package:waro_flutter/card.dart';
+import 'package:waro_flutter/cards.dart';
 import 'package:waro_flutter/deck.dart';
 
 void main() {
@@ -15,19 +17,13 @@ void main() {
   test('deck shuffle should have same sum', () {
     final numCards = 20;
     final deck = Deck(numCards);
-    var originalCards = []..addAll(deck.cards);
-    var originalTotal = 0;
-    originalCards.forEach((card) {
-      originalTotal += card.value;
-    });
+    List<Card> originalCards = []..addAll(deck.cards);
+    var originalTotal = new Cards().sum(originalCards);
 
     // test
     deck.shuffle();
 
-    var shuffleTotal = 0;
-    deck.cards.forEach((card) {
-      shuffleTotal += card.value;
-    });
+    var shuffleTotal = new Cards().sum(deck.cards);
 
     expect(shuffleTotal, originalTotal);
   });

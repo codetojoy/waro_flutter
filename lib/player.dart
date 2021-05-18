@@ -1,4 +1,5 @@
 import './card.dart';
+import './cards.dart';
 import './hand.dart';
 import './playerstats.dart';
 import './strategy.dart';
@@ -35,11 +36,7 @@ class Player {
   String get name => _name;
 
   int getSumPoints() {
-    var result = 0;
-    _hand.cards.forEach((card) {
-      result += card.value;
-    });
-    return result;
+    return new Cards().sum(_hand.cards);
   }
 
   void winsRound(Card prizeCard) {
