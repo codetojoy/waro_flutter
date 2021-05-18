@@ -2,13 +2,11 @@ import './player.dart';
 import './strategy.dart';
 
 class Config {
-  final int _numCards = 20;
-  int _numPlayers;
-  int _numCardsInHand;
-  final List<Player> _players = [];
+  int numCards = 20;
+  List<Player> _players = [];
 
   Config() {
-    var maxCard = _numCards;
+    var maxCard = numCards;
     var nextCard = new Strategies().buildStrategy('next');
     var p1 = new Player('You', nextCard, true, maxCard);
     var p2 = new Player('Mozart', nextCard, false, maxCard);
@@ -16,12 +14,11 @@ class Config {
     _players.add(p1);
     _players.add(p2);
     _players.add(p3);
-    _numPlayers = _players.length;
-    _numCardsInHand = (_numCards / (_numPlayers + 1)).floor();
   }
 
-  get numCards => _numCards;
-  get numPlayers => _numPlayers;
-  get numCardsInHand => _numCardsInHand;
+  static Config instance = new Config();
+
+  get numPlayers => _players.length;
+  get numCardsInHand => (numCards / (_players.length + 1)).floor();
   get players => _players;
 }

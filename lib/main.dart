@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './card.dart' as waro_c;
+import './config.dart';
+import './config_form.dart';
 import './game.dart';
 import './logger.dart';
 import './tableau.dart';
@@ -74,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar: AppBar(
               title: Text('Config'),
             ),
-            body: ListView(children: <Widget>[]),
+            body: ConfigForm(Config.instance),
           );
         }, // ...to here.
       ),

@@ -9,7 +9,7 @@ import './player.dart';
 import './table.dart';
 
 class Dealer {
-  final _config = new Config();
+  final _config = Config.instance;
 
   Auditor buildAuditor() {
     final numCards = _config.numCards;
