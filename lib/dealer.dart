@@ -1,3 +1,4 @@
+import './auditor.dart';
 import './bid.dart';
 import './card.dart';
 import './config.dart';
@@ -8,17 +9,23 @@ import './player.dart';
 import './table.dart';
 
 class Dealer {
+  final _config = new Config();
+
+  Auditor buildAuditor() {
+    final numCards = _config.numCards;
+    return new Auditor(numCards);
+  }
+
   Table setupGame() {
-    final config = new Config();
-    final numCards = config.numCards;
-    final numCardsInHand = config.numCardsInHand;
+    final numCards = _config.numCards;
+    final numCardsInHand = _config.numCardsInHand;
 
     final deck = new Deck(numCards);
     deck.shuffle();
     L.log(' Dealer.playGame $deck');
     var cards = deck.cards;
     var hands = dealHands(cards, numCardsInHand);
-    var table = buildTable(hands, config.players);
+    var table = buildTable(hands, _config.players);
     L.log('Dealer.pG ' + table.toString());
     return table;
   }
@@ -61,7 +68,7 @@ class Dealer {
 
   String playRound(Table table, Card userCard) {
     var prizeCard = table.prizeCard;
-    List<Bid> bids = findBids(prizeCard, table.players, userCard);
+    List<Bid> bids = findBids(table, userCard);
     Bid winningBid = findWinningBid(bids);
     winningBid.player.winsRound(prizeCard);
     table.kitty.updateHand(prizeCard);
@@ -69,9 +76,11 @@ class Dealer {
     return winningBid.player.name + ' won round ($prizeCard points)';
   }
 
-  List<Bid> findBids(Card prizeCard, List<Player> players, Card userCard) {
-    var bids = players.map((player) {
+  List<Bid> findBids(Table table, Card userCard) {
+    var prizeCard = table.prizeCard;
+    var bids = table.players.map((player) {
       Card offer = (player.isUser) ? userCard : player.selectCard(prizeCard);
+      table.updateDiscardTotal(offer);
       player.updateHand(offer);
       return new Bid(player, offer);
     });

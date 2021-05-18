@@ -5,6 +5,7 @@ class Table {
   Kitty _kitty;
   List<Player> _players;
   String _status = '';
+  int _discardTotal = 0;
 
   Table(this._kitty, this._players);
 
@@ -17,6 +18,12 @@ class Table {
 
   String get status => _status;
   set status(String status) => _status = status;
+
+  int get discardTotal => _discardTotal;
+
+  void updateDiscardTotal(waro_c.Card card) {
+    _discardTotal += card.value;
+  }
 
   bool isGameOver() {
     return kitty.hand.cards.length == 0;

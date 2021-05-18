@@ -34,6 +34,14 @@ class Player {
   PlayerStats get playerStats => _playerStats;
   String get name => _name;
 
+  int getSumPoints() {
+    var result = 0;
+    _hand.cards.forEach((card) {
+      result += card.value;
+    });
+    return result;
+  }
+
   void winsRound(Card prizeCard) {
     _playerStats.incNumRoundsWon();
     _playerStats.addPoints(prizeCard.value);
