@@ -1,3 +1,4 @@
+import './logger.dart';
 import './table.dart' as waro_t;
 
 class Auditor {
@@ -22,6 +23,8 @@ class Auditor {
 
     if (actualSum != _expectedSum) {
       throw new Exception('audit error! a: $actualSum e: $_expectedSum');
+    } else {
+      L.log('audit OK');
     }
   }
 }

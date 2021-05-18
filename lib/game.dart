@@ -21,6 +21,7 @@ class Game {
 
   void playRound(Card userCard) {
     String status = _dealer.playRound(_table, userCard);
+    _table.sortPlayers();
     _auditor.audit(_table);
     _table.status = status;
   }

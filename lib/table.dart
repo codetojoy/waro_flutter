@@ -1,5 +1,6 @@
 import './card.dart' as waro_c;
 import './player.dart';
+import './players.dart';
 
 class Table {
   Kitty _kitty;
@@ -32,6 +33,10 @@ class Table {
   Player get user {
     var result = _players.firstWhere((p) => p.isUser);
     return result;
+  }
+
+  void sortPlayers() {
+    new Players().sort(_players);
   }
 
   String toString() {

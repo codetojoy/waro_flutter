@@ -17,6 +17,7 @@ class PlayerStats {
   }
 
   String toString() {
-    return 'points: $_total, rounds: $_numRoundsWon';
+    // return 'points: $_total, rounds: $_numRoundsWon';
+    return '$_total pts';
   }
 }
