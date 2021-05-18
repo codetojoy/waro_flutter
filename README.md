@@ -21,6 +21,7 @@ To Run:
 
 * `./run.sh` for device emulator
 * `./run.web.sh` for Chrome
+* `./test.sh` for unit tests
 
 Rules:
 ---------
