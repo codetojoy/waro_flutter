@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       title: _version(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        secondaryHeaderColor: Colors.black,
       ),
       home: MyHomePage(title: _version()),
     );
@@ -65,11 +66,29 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _pushConfig() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('Config'),
+            ),
+            body: ListView(children: <Widget>[]),
+          );
+        }, // ...to here.
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          actions: [
+            IconButton(icon: Icon(Icons.list), onPressed: _pushConfig),
+          ],
         ),
         body: (_isGameInProgress())
             ? Tableau(_game.table, _playCard, _newGame)

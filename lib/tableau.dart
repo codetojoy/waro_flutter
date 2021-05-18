@@ -16,18 +16,18 @@ class Tableau extends StatelessWidget {
   Widget build(BuildContext context) {
     if (this._table.isGameOver()) {
       return Container(
-        width: double.infinity,
+          width: double.infinity,
           child: Column(
-        children: [
-          _StatusWidget(_table.status),
-          _PlayersInfoWidget(_table.players),
-          FloatingActionButton(
-            onPressed: _newGameHandler,
-            tooltip: 'New Game',
-            child: Icon(Icons.add),
-          ),
-        ],
-      ));
+            children: [
+              _StatusWidget(_table.status),
+              _PlayersInfoWidget(_table.players),
+              FloatingActionButton(
+                onPressed: _newGameHandler,
+                tooltip: 'New Game',
+                child: Icon(Icons.add),
+              ),
+            ],
+          ));
     } else {
       return Center(
           child: Column(
