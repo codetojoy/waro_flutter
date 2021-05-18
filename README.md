@@ -5,6 +5,8 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - status bar should be a SnackBar
+        - not sure how to fire programmatically
     - config page
     - full unit tests
     - styling
