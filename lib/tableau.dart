@@ -15,7 +15,8 @@ class Tableau extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (this._table.isGameOver()) {
-      return Center(
+      return Container(
+        width: double.infinity,
           child: Column(
         children: [
           _StatusWidget(_table.status),
@@ -64,7 +65,7 @@ class _PrizeCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Row(children: [
+        child: Column(children: [
       Text('Prize:',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
@@ -73,6 +74,7 @@ class _PrizeCardWidget extends StatelessWidget {
   }
 }
 
+/*
 class _KittyWidget extends StatelessWidget {
   final Kitty _kitty;
 
@@ -93,6 +95,7 @@ class _KittyWidget extends StatelessWidget {
     ));
   }
 }
+*/
 
 class _UserHandWidget extends StatelessWidget {
   final Hand _hand;
@@ -143,7 +146,7 @@ class _PlayerInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var text = _player.name + ' ' + _player.playerStats.toString();
+    var text = _player.name + ' : ' + _player.playerStats.toString();
     return Center(
         child: Column(
       children: [

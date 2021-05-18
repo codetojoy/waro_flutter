@@ -5,7 +5,8 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
-    - unit tests
+    - config page
+    - full unit tests
     - styling
     - state management
     - clean up widgets
