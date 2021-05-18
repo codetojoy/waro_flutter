@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       L.log('user played card: $card');
       _game.playRound(card);
       if (_game.isGameOver()) {
+        L.log('main game over');
         _game.findGameWinner();
       }
     });
@@ -71,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: (_isGameInProgress())
-            ? Tableau(_game.table, _playCard)
+            ? Tableau(_game.table, _playCard, _newGame)
             : Welcome(_newGame));
   }
 }

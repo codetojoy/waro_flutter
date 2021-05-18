@@ -28,6 +28,6 @@ class Game {
   bool isGameOver() => _table.isGameOver();
 
   void findGameWinner() {
-    _dealer.findGameWinner(_table);
+    _table.status = _dealer.findGameWinner(_table);
   }
 }

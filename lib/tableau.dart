@@ -8,22 +8,28 @@ import './table.dart' as waro_t;
 class Tableau extends StatelessWidget {
   final waro_t.Table _table;
   final Function _playCardHandler;
+  final Function _newGameHandler;
 
-  Tableau(this._table, this._playCardHandler);
+  Tableau(this._table, this._playCardHandler, this._newGameHandler);
 
   @override
   Widget build(BuildContext context) {
     if (this._table.isGameOver()) {
       return Center(
-        child: Column(
+          child: Column(
         children: [
           _StatusWidget(_table.status),
           _PlayersInfoWidget(_table.players),
+          FloatingActionButton(
+            onPressed: _newGameHandler,
+            tooltip: 'New Game',
+            child: Icon(Icons.add),
+          ),
         ],
       ));
     } else {
       return Center(
-        child: Column(
+          child: Column(
         children: [
           _StatusWidget(_table.status),
           _PrizeCardWidget(_table.prizeCard),
@@ -57,12 +63,13 @@ class _PrizeCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return Center(
+        child: Row(children: [
       Text('Prize:',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
       _CardWidget(_prizeCard, _noOp, 'prize card'),
-    ]);
+    ]));
   }
 }
 

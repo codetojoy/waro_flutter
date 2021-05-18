@@ -5,7 +5,7 @@ class Auditor {
   int _expectedSum;
 
   Auditor(this._maxCard) {
-    _expectedSum = (_maxCard * (_maxCard + 1)) / 2;
+    _expectedSum = ((_maxCard * (_maxCard + 1)) / 2).floor();
   }
 
   void audit(waro_t.Table table) {

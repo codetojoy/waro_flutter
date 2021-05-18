@@ -18,7 +18,7 @@ class Welcome extends StatelessWidget {
             onPressed: _newGameHandler,
             tooltip: 'New Game',
             child: Icon(Icons.add),
-          ), // This trailing comma makes auto-formatting nicer for build methods.
+          ),
         ],
       ),
     );
