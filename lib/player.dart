@@ -52,6 +52,10 @@ class Player {
     return _strategy.selectCard(_hand.cards, prizeCard.value, _maxCard);
   }
 
+  void newGame() {
+    _playerStats.clear();
+  }
+
   String toString() {
     var result = '$_name $_hand';
     return result;

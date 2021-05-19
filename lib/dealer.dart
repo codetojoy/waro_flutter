@@ -6,6 +6,7 @@ import './deck.dart';
 import './hand.dart';
 import './logger.dart';
 import './player.dart';
+import './players.dart';
 import './table.dart';
 
 class Dealer {
@@ -57,13 +58,8 @@ class Dealer {
   }
 
   String findGameWinner(Table table) {
-    Player winner = table.players[0];
-    table.players.forEach((player) {
-      if (player.playerStats.total > winner.playerStats.total) {
-        winner = player;
-      }
-    });
-    return winner.name + ' wins game!';
+    Player winner = new Players().findByHighestTotal(table.players);
+    return winner.name + ' won the game!';
   }
 
   String playRound(Table table, Card userCard) {

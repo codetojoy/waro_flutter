@@ -14,10 +14,10 @@ class PlayerStats {
 
   void clear() {
     _total = 0;
+    _numRoundsWon = 0;
   }
 
   String toString() {
-    // return 'points: $_total, rounds: $_numRoundsWon';
     return '$_total pts';
   }
 }

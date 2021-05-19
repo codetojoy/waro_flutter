@@ -5,8 +5,9 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - review encapsulation/Demeter
     - bug: config only works the first time?
-    - bug: clear player stats
+        - on Chrome ... Android ok
     - code layout in folders
     - status bar should be a SnackBar
         - not sure how to fire programmatically

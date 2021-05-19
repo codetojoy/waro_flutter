@@ -1,6 +1,7 @@
 import './auditor.dart';
 import './card.dart';
 import './dealer.dart';
+import './players.dart';
 import './table.dart';
 
 class Game {
@@ -17,6 +18,7 @@ class Game {
     _table = _dealer.setupGame();
     _table.status = "Your turn";
     _auditor = _dealer.buildAuditor();
+    new Players().newGame(_table.players);
   }
 
   void playRound(Card userCard) {
