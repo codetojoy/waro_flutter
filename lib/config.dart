@@ -1,3 +1,4 @@
+import './logger.dart';
 import './player.dart';
 import './strategy.dart';
 
@@ -21,4 +22,10 @@ class Config {
   get numPlayers => _players.length;
   get numCardsInHand => (numCards / (_players.length + 1)).floor();
   get players => _players;
+
+  bool isValid(int newNumCards) {
+    var result = newNumCards % (numPlayers + 1) == 0;
+    L.log('config isValid result: $result');
+    return result;
+  }
 }
