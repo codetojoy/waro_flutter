@@ -18,6 +18,7 @@ a Flutter submission for War-O as a code exercise
     - state management
     - clean up widgets
     - make idiomatic for Flutter, Dart 
+    - use a grid for cards when # of cards > N
 
 To Build:
 ---------
