@@ -15,6 +15,7 @@ a Flutter submission for War-O as a code exercise
     - config page
     - full unit tests
     - styling
+        - remove hardcode font size
     - state management
     - clean up widgets
     - make idiomatic for Flutter, Dart 
