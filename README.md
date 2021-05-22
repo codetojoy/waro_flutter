@@ -27,6 +27,7 @@ a Flutter submission for War-O as a code exercise
     - use a grid for cards when # of cards > N
         - use scrollable ListView ?
         - or GridView! 
+    - sort user's hand 
 
 To Build:
 ---------
