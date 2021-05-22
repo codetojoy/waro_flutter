@@ -5,6 +5,9 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - pristine branch as simple ListView with scrolling hands
+    - new game button for end of game
+        - or cancel button
     - figure out centering and relative sizing
         - use Card with nice shadow
     - review encapsulation/Demeter
