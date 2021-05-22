@@ -5,6 +5,8 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - figure out centering and relative sizing
+        - use Card with nice shadow
     - review encapsulation/Demeter
     - bug: config only works the first time?
         - on Chrome ... Android ok
@@ -20,6 +22,8 @@ a Flutter submission for War-O as a code exercise
     - clean up widgets
     - make idiomatic for Flutter, Dart 
     - use a grid for cards when # of cards > N
+        - use scrollable ListView ?
+        - or GridView! 
 
 To Build:
 ---------
