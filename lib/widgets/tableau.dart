@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './card.dart' as waro_c;
-import './hand.dart';
-import './player.dart';
-import './table.dart' as waro_t;
+import '../card.dart' as waro_c;
+import '../hand.dart';
+import '../player.dart';
+import '../table.dart' as waro_t;
 
 class Tableau extends StatelessWidget {
   final waro_t.Table _table;
@@ -49,9 +49,11 @@ class _StatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(this._statusText,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
+    return Card(
+        child: Text(this._statusText,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        elevation: 5);
   }
 }
 
@@ -64,13 +66,14 @@ class _PrizeCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Card(
         child: Column(children: [
-      Text('Prize:',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
-      _CardWidget(_prizeCard, _noOp, 'prize card'),
-    ]));
+          Text('Prize:',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+          _CardWidget(_prizeCard, _noOp, 'prize card'),
+        ]),
+        elevation: 5);
   }
 }
 
@@ -130,12 +133,16 @@ class _PlayersInfoWidget extends StatelessWidget {
     var infoWidgets = _players.map((player) {
       return _PlayerInfoWidget(player);
     });
-    return Center(
-        child: Column(
-      children: [
-        ...infoWidgets,
-      ],
-    ));
+    return Container(
+        child: Card(
+          child: Column(
+            children: [
+              ...infoWidgets,
+            ],
+          ),
+          elevation: 5,
+        ),
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40));
   }
 }
 
@@ -147,14 +154,13 @@ class _PlayerInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var text = _player.name + ' : ' + _player.playerStats.toString();
-    return Center(
-        child: Column(
+    return Column(
       children: [
         Text(text,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
       ],
-    ));
+    );
   }
 }
 

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import './card.dart' as waro_c;
 import './config.dart';
-import './config_form.dart';
 import './game.dart';
 import './logger.dart';
-import './tableau.dart';
 import './time.dart';
-import './welcome.dart';
+import './widgets/config_form.dart';
+import './widgets/tableau.dart';
+import './widgets/welcome.dart';
 
 void main() {
   runApp(MyApp());

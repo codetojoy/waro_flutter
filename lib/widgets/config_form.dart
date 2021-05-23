@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import './config.dart';
+import '../config.dart';
 
 class ConfigForm extends StatefulWidget {
   Config _config;
@@ -54,7 +54,8 @@ class ConfigFormState extends State<ConfigForm> {
                 if (_formKey.currentState.validate()) {
                   int numCards = int.parse(_numCardsController.text);
                   _config.numCards = numCards;
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Saved!')));
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('Saved!')));
                 }
               },
               child: Text('Submit'),
