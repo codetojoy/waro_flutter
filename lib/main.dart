@@ -15,7 +15,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   String _version() {
-    var version = "23-MAY-2021-tragically-hip";
+    var version = "23-MAY-2021-cream";
     var now = new Time().now();
     return 'waro v $version $now';
   }

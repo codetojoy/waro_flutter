@@ -29,7 +29,12 @@ class Player {
   List<Card> get cards => _hand.cards;
 
   Hand get hand => _hand;
-  set hand(Hand hand) => _hand = hand;
+  set hand(Hand hand) {
+    _hand = hand;
+    if (isUser) {
+      hand.sort();
+    }
+  }
 
   bool get isUser => _isUser;
   PlayerStats get playerStats => _playerStats;
@@ -46,6 +51,9 @@ class Player {
 
   void updateHand(Card choice) {
     _hand = hand.updateHand(choice);
+    if (isUser) {
+      hand.sort();
+    }
   }
 
   Card selectCard(Card prizeCard) {

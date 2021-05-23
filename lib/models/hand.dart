@@ -7,6 +7,11 @@ class Hand {
 
   get cards => _cards;
 
+  // TODO: sort-order should be a config setting?
+  void sort() {
+    _cards.sort((Card a, Card b) => a.value.compareTo(b.value));
+  }
+
   Hand updateHand(Card choice) {
     var newCards = _cards.where((c) => c.value != choice.value).toList();
     var hand = new Hand(newCards);
