@@ -1,3 +1,4 @@
+import './config.dart';
 import './player.dart';
 
 class Players {
@@ -8,6 +9,12 @@ class Players {
   void newGame(List<Player> players) {
     players.forEach((player) {
       player.newGame();
+    });
+  }
+
+  void refresh(List<Player> players, Config config) {
+    players.forEach((player) {
+      // player.refresh(config);
     });
   }
 

@@ -1,17 +1,19 @@
-import '../util/logger.dart';
 import './player.dart';
 import './strategy.dart';
+import '../util/constants.dart';
+import '../util/logger.dart';
 
 class Config {
   int numCards = 20;
   List<Player> _players = [];
+  // TODO: enum
+  String sortOrder = C.SORT_NONE;
 
   Config() {
-    var maxCard = numCards;
     var nextCard = new Strategies().buildStrategy('next');
-    var p1 = new Player('You', nextCard, true, maxCard);
-    var p2 = new Player('Mozart', nextCard, false, maxCard);
-    var p3 = new Player('Chopin', nextCard, false, maxCard);
+    var p1 = new Player('You', nextCard, true, this);
+    var p2 = new Player('Mozart', nextCard, false, this);
+    var p3 = new Player('Chopin', nextCard, false, this);
     _players.add(p1);
     _players.add(p2);
     _players.add(p3);

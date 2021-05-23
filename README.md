@@ -5,9 +5,7 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
-    - pristine branch as simple ListView with scrolling hands
-    - new game button for end of game
-        - or cancel button
+    - current styling is utilitarian and hideous
     - figure out centering and relative sizing
         - use Card with nice shadow
     - review encapsulation/Demeter
@@ -19,7 +17,7 @@ a Flutter submission for War-O as a code exercise
         - not sure how to fire programmatically
     - REST API strategy
     - config page
-        - sort-order preference
+        - X - sort-order preference
     - full unit tests
     - styling
         - remove hardcode font size
@@ -29,7 +27,6 @@ a Flutter submission for War-O as a code exercise
     - use a grid for cards when # of cards > N
         - use scrollable ListView ?
         - or GridView! 
-    - X sort user's hand 
 
 To Build:
 ---------

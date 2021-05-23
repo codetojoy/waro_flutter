@@ -83,6 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  void _cancelGame() {
+    setState(() {
+      L.log('user cancelled');
+      _game.cancel();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         body: (_isGameInProgress())
-            ? Tableau(_game.table, _playCard, _newGame)
+            ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
             : Welcome(_newGame));
   }
 }

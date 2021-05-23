@@ -9,8 +9,9 @@ class Tableau extends StatelessWidget {
   final waro_t.Table _table;
   final Function _playCardHandler;
   final Function _newGameHandler;
+  final Function _cancelGameHandler;
 
-  Tableau(this._table, this._playCardHandler, this._newGameHandler);
+  Tableau(this._table, this._playCardHandler, this._newGameHandler, this._cancelGameHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,11 @@ class Tableau extends StatelessWidget {
           _PrizeCardWidget(_table.prizeCard),
           _UserHandWidget(_table.user.hand, _playCardHandler),
           _PlayersInfoWidget(_table.players),
+          FloatingActionButton(
+            onPressed: _cancelGameHandler,
+            tooltip: 'Quit Game',
+            child: Icon(Icons.cancel),
+          ),
         ],
       ));
     }
@@ -77,29 +83,6 @@ class _PrizeCardWidget extends StatelessWidget {
   }
 }
 
-/*
-class _KittyWidget extends StatelessWidget {
-  final Kitty _kitty;
-
-  _KittyWidget(this._kitty);
-
-  _noOp() {}
-
-  @override
-  Widget build(BuildContext context) {
-    var cardWidgets = _kitty.cards.map((waro_c.Card card) {
-      return _CardWidget(card, _noOp, '');
-    });
-    return Center(
-        child: Row(
-      children: [
-        ...cardWidgets,
-      ],
-    ));
-  }
-}
-*/
-
 class _UserHandWidget extends StatelessWidget {
   final Hand _hand;
   final Function _playCardHandler;
@@ -112,14 +95,14 @@ class _UserHandWidget extends StatelessWidget {
       return _CardWidget(card, () => _playCardHandler(card), 'press to play');
     });
     return Center(
-        child: Column(
+        child: Container(height: 300, child: ListView(
       children: [
         Text('Your hand:',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
         ...cardWidgets,
       ],
-    ));
+    )));
   }
 }
 

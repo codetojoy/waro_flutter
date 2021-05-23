@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/config.dart';
+import '../util/constants.dart';
+import '../util/logger.dart';
 
 class ConfigForm extends StatefulWidget {
   Config _config;
@@ -17,6 +19,7 @@ class ConfigForm extends StatefulWidget {
 class ConfigFormState extends State<ConfigForm> {
   final _formKey = GlobalKey<FormState>();
   final _numCardsController = TextEditingController();
+  String _sortValue = C.SORT_NONE;
 
   Config _config;
 
@@ -47,6 +50,21 @@ class ConfigFormState extends State<ConfigForm> {
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered
           ),
+          DropdownButtonFormField(
+            decoration: new InputDecoration(labelText: 'sort order'),
+            value: C.SORT_NONE,
+            items: <String>[C.SORT_NONE, C.SORT_ASC, C.SORT_DESC]
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            onChanged: (value) {
+              L.log('TRACER drop down $value');
+              _sortValue = value;
+            },
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
@@ -54,6 +72,7 @@ class ConfigFormState extends State<ConfigForm> {
                 if (_formKey.currentState.validate()) {
                   int numCards = int.parse(_numCardsController.text);
                   _config.numCards = numCards;
+                  _config.sortOrder = _sortValue;
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text('Saved!')));
                 }

@@ -1,5 +1,6 @@
 import './card.dart';
 import './cards.dart';
+import './config.dart';
 import './hand.dart';
 import './playerstats.dart';
 import './strategy.dart';
@@ -10,14 +11,15 @@ class Player {
   Strategy _strategy;
   bool _isUser = false;
   PlayerStats _playerStats = new PlayerStats();
-  int _maxCard = 0;
+  Config _config;
 
-  Player(String name, Strategy strategy, bool isUser, int maxCard) {
+  Player(
+      String name, Strategy strategy, bool isUser, Config config) {
     _name = name;
     _strategy = strategy;
     _hand = new Hand([]);
     _isUser = isUser;
-    _maxCard = maxCard;
+    _config = config;
   }
 
   Player.kitty(String name, Hand hand, Strategy strategy) {
@@ -32,7 +34,7 @@ class Player {
   set hand(Hand hand) {
     _hand = hand;
     if (isUser) {
-      hand.sort();
+      hand.sort(_config.sortOrder);
     }
   }
 
@@ -52,12 +54,12 @@ class Player {
   void updateHand(Card choice) {
     _hand = hand.updateHand(choice);
     if (isUser) {
-      hand.sort();
+      hand.sort(_config.sortOrder);
     }
   }
 
   Card selectCard(Card prizeCard) {
-    return _strategy.selectCard(_hand.cards, prizeCard.value, _maxCard);
+    return _strategy.selectCard(_hand.cards, prizeCard.value, _config.numCards);
   }
 
   void newGame() {

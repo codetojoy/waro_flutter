@@ -1,4 +1,5 @@
 import './card.dart';
+import '../util/constants.dart';
 
 class Hand {
   List<Card> _cards;
@@ -8,8 +9,24 @@ class Hand {
   get cards => _cards;
 
   // TODO: sort-order should be a config setting?
-  void sort() {
-    _cards.sort((Card a, Card b) => a.value.compareTo(b.value));
+  void sort(String sortOrder) {
+    switch (sortOrder) {
+      case C.SORT_NONE:
+        {
+          // no-op
+        }
+        break;
+      case C.SORT_ASC:
+        {
+          _cards.sort((Card a, Card b) => a.value.compareTo(b.value));
+        }
+        break;
+      case C.SORT_DESC:
+        {
+          _cards.sort((Card a, Card b) => b.value.compareTo(a.value));
+        }
+        break;
+    }
   }
 
   Hand updateHand(Card choice) {
