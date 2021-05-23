@@ -96,17 +96,18 @@ class _UserHandWidget extends StatelessWidget {
       return _CardWidget(card, () => _playCardHandler(card), 'press to play');
     });
     return Center(
-        child: Container(
-            height: 300,
-            child: ListView(
-              children: [
-                Text('Your hand:',
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
-                ...cardWidgets,
-              ],
-            )));
+      child: Column(children: [
+        Text('Your hand:',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+        Container(
+          height: 300,
+          child: ListView(children: [
+            ...cardWidgets,
+          ]),
+        ),
+      ]),
+    );
   }
 }
 

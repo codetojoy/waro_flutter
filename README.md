@@ -11,13 +11,14 @@ a Flutter submission for War-O as a code exercise
     - review encapsulation/Demeter
     - bug: config only works the first time?
         - on Chrome ... Android ok
-    - X - code layout in folders
+    - code layout in folders
         - consider `services` for dealer and auditor?
     - status bar should be a SnackBar
         - not sure how to fire programmatically
     - REST API strategy
-    - config page
+    - config 
         - X - sort-order preference
+        - read from JSON file 
     - full unit tests
     - styling
         - remove hardcode font size

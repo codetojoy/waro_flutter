@@ -1,8 +1,10 @@
 import './card.dart';
+import './config.dart';
 import './players.dart';
 import './table.dart';
 import '../auditor.dart';
 import '../dealer.dart';
+import '../util/logger.dart';
 
 class Game {
   Dealer _dealer = new Dealer();
@@ -14,6 +16,7 @@ class Game {
   bool get inProgress => _inProgress;
 
   void setupGame() {
+    L.log('Game.sG config: ${Config.instance}');
     _inProgress = true;
     _table = _dealer.setupGame();
     _table.status = "Your turn";
@@ -26,6 +29,7 @@ class Game {
   }
 
   void playRound(Card userCard) {
+    L.log('Game.pR config: ${Config.instance}');
     String status = _dealer.playRound(_table, userCard);
     _table.sortPlayers();
     _auditor.audit(_table);

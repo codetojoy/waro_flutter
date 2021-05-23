@@ -9,7 +9,7 @@ class Config {
   // TODO: enum
   String sortOrder = C.SORT_NONE;
 
-  Config() {
+  Config._() {
     var nextCard = new Strategies().buildStrategy('next');
     var p1 = new Player('You', nextCard, true, this);
     var p2 = new Player('Mozart', nextCard, false, this);
@@ -19,7 +19,7 @@ class Config {
     _players.add(p3);
   }
 
-  static Config instance = new Config();
+  static Config instance = new Config._();
 
   get numPlayers => _players.length;
   get numCardsInHand => (numCards / (_players.length + 1)).floor();
@@ -29,5 +29,9 @@ class Config {
     var result = newNumCards % (numPlayers + 1) == 0;
     L.log('config isValid result: $result');
     return result;
+  }
+
+  String toString() {
+    return 'config :: numCards: ${numCards} sortOrder: ${sortOrder}';
   }
 }
