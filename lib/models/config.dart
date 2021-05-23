@@ -1,4 +1,4 @@
-import './logger.dart';
+import '../util/logger.dart';
 import './player.dart';
 import './strategy.dart';
 

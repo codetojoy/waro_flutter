@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import './card.dart' as waro_c;
-import './config.dart';
-import './game.dart';
-import './logger.dart';
-import './time.dart';
+import './models/card.dart' as waro_c;
+import './models/config.dart';
+import './models/game.dart';
+import './util/logger.dart';
+import './util/time.dart';
 import './widgets/config_form.dart';
 import './widgets/tableau.dart';
 import './widgets/welcome.dart';
@@ -15,7 +15,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   String _version() {
-    var version = "mon-17";
+    var version = "23-MAY-2021-tragically-hip";
     var now = new Time().now();
     return 'waro v $version $now';
   }

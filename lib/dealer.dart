@@ -1,13 +1,13 @@
 import './auditor.dart';
-import './bid.dart';
-import './card.dart';
-import './config.dart';
-import './deck.dart';
-import './hand.dart';
-import './logger.dart';
-import './player.dart';
-import './players.dart';
-import './table.dart';
+import './models/bid.dart';
+import './models/card.dart';
+import './models/config.dart';
+import './models/deck.dart';
+import './models/hand.dart';
+import './util/logger.dart';
+import './models/player.dart';
+import './models/players.dart';
+import './models/table.dart';
 
 class Dealer {
   final _config = Config.instance;

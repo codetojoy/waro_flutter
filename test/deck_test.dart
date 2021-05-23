@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
-import 'package:waro_flutter/card.dart';
-import 'package:waro_flutter/cards.dart';
-import 'package:waro_flutter/deck.dart';
+import 'package:waro_flutter/models/card.dart';
+import 'package:waro_flutter/models/cards.dart';
+import 'package:waro_flutter/models/deck.dart';
 
 void main() {
   test('deck basic', () {

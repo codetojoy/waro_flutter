@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../config.dart';
+import '../models/config.dart';
 
 class ConfigForm extends StatefulWidget {
   Config _config;

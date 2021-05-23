@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../card.dart' as waro_c;
-import '../hand.dart';
-import '../player.dart';
-import '../table.dart' as waro_t;
+import '../models/card.dart' as waro_c;
+import '../models/hand.dart';
+import '../models/player.dart';
+import '../models/table.dart' as waro_t;
 
 class Tableau extends StatelessWidget {
   final waro_t.Table _table;

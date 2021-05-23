@@ -1,6 +1,6 @@
-import './auditor.dart';
+import '../auditor.dart';
 import './card.dart';
-import './dealer.dart';
+import '../dealer.dart';
 import './players.dart';
 import './table.dart';
 
