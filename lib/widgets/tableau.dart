@@ -11,7 +11,8 @@ class Tableau extends StatelessWidget {
   final Function _newGameHandler;
   final Function _cancelGameHandler;
 
-  Tableau(this._table, this._playCardHandler, this._newGameHandler, this._cancelGameHandler);
+  Tableau(this._table, this._playCardHandler, this._newGameHandler,
+      this._cancelGameHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -95,14 +96,17 @@ class _UserHandWidget extends StatelessWidget {
       return _CardWidget(card, () => _playCardHandler(card), 'press to play');
     });
     return Center(
-        child: Container(height: 300, child: ListView(
-      children: [
-        Text('Your hand:',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
-        ...cardWidgets,
-      ],
-    )));
+        child: Container(
+            height: 300,
+            child: ListView(
+              children: [
+                Text('Your hand:',
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+                ...cardWidgets,
+              ],
+            )));
   }
 }
 

@@ -8,7 +8,7 @@ void main() {
   final deck = Deck(numCards);
 
   setUp(() {
-      // 1,3,2
+    // 1,3,2
     final tmp = deck.cards[2];
     deck.cards[2] = deck.cards[1];
     deck.cards[1] = tmp;

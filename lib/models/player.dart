@@ -13,8 +13,7 @@ class Player {
   PlayerStats _playerStats = new PlayerStats();
   Config _config;
 
-  Player(
-      String name, Strategy strategy, bool isUser, Config config) {
+  Player(String name, Strategy strategy, bool isUser, Config config) {
     _name = name;
     _strategy = strategy;
     _hand = new Hand([]);
