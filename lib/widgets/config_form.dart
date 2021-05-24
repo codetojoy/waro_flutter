@@ -12,7 +12,7 @@ class ConfigForm extends StatefulWidget {
 
   @override
   ConfigFormState createState() {
-    return ConfigFormState(_config);
+    return ConfigFormState();
   }
 }
 
@@ -21,13 +21,10 @@ class ConfigFormState extends State<ConfigForm> {
   final _numCardsController = TextEditingController();
   String _sortValue = C.SORT_NONE;
 
-  Config _config;
-
-  ConfigFormState(this._config);
-
   @override
   Widget build(BuildContext context) {
-    var numActors = _config.numPlayers + 1;
+    var config = widget._config;
+    var numActors = config.numPlayers + 1;
     var prompt = 'Enter # of cards (divisible by $numActors)';
     return Form(
       key: _formKey,
@@ -40,8 +37,8 @@ class ConfigFormState extends State<ConfigForm> {
             controller: _numCardsController,
             validator: (value) {
               int numCards = int.parse(value);
-              if (!_config.isValid(numCards)) {
-                var numActors = _config.numPlayers + 1;
+              if (!config.isValid(numCards)) {
+                var numActors = config.numPlayers + 1;
                 return '# of cards must be divisible by $numActors';
               }
               return null;
@@ -71,8 +68,8 @@ class ConfigFormState extends State<ConfigForm> {
               onPressed: () {
                 if (_formKey.currentState.validate()) {
                   int numCards = int.parse(_numCardsController.text);
-                  _config.numCards = numCards;
-                  _config.sortOrder = _sortValue;
+                  config.numCards = numCards;
+                  config.sortOrder = _sortValue;
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text('Saved!')));
                 }

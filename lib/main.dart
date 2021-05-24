@@ -15,7 +15,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   String _version() {
-    var version = "23-MAY-2021-cream";
+    var version = "24-MAY-2021-nhl";
     var now = new Time().now();
     return 'waro v $version $now';
   }
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _version(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: (_isGameInProgress())
             ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
-            : Welcome(_newGame));
+            : Welcome(_newGame)
+    );
   }
 }
