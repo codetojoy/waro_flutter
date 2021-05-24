@@ -32,4 +32,12 @@ void main() {
 
     expect(result.value, 10);
   });
+  test('min card', () {
+    strategy = new Strategies().buildStrategy(StrategyType.min_card);
+
+    // test
+    var result = strategy.selectCard(cards, prizeCard, maxCard);
+
+    expect(result.value, 1);
+  });
 }

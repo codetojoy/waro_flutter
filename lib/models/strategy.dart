@@ -7,6 +7,7 @@ abstract class Strategy {
 enum StrategyType {
   next_card,
   max_card,
+  min_card,
 }
 
 class Strategies {
@@ -21,6 +22,11 @@ class Strategies {
       case StrategyType.max_card:
         {
           strategy = new _MaxCard();
+        }
+        break;
+      case StrategyType.min_card:
+        {
+          strategy = new _MinCard();
         }
         break;
     }
@@ -38,5 +44,12 @@ class _MaxCard extends Strategy {
   Card selectCard(List<Card> cards, int prizeCard, int maxCard) {
     return cards
         .reduce((current, next) => current.value > next.value ? current : next);
+  }
+}
+
+class _MinCard extends Strategy {
+  Card selectCard(List<Card> cards, int prizeCard, int maxCard) {
+    return cards
+        .reduce((current, next) => current.value < next.value ? current : next);
   }
 }
