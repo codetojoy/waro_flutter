@@ -10,14 +10,22 @@ void main() {
 
   setUp(() {
     // 10, 1, 4, 8
+    cards.add(new Card(4));
     cards.add(new Card(10));
     cards.add(new Card(1));
-    cards.add(new Card(4));
     cards.add(new Card(8));
   });
 
   test('next card', () {
     strategy = new Strategies().buildStrategy(StrategyType.next_card);
+
+    // test
+    var result = strategy.selectCard(cards, prizeCard, maxCard);
+
+    expect(result.value, 4);
+  });
+  test('max card', () {
+    strategy = new Strategies().buildStrategy(StrategyType.max_card);
 
     // test
     var result = strategy.selectCard(cards, prizeCard, maxCard);
