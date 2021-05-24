@@ -73,7 +73,7 @@ class Player {
 
 class Kitty extends Player {
   Kitty(Hand hand)
-      : super.kitty('kitty', hand, new Strategies().buildStrategy('next'));
+      : super.kitty('kitty', hand, new Strategies().buildStrategy(StrategyType.next_card));
 
   String toString() {
     return super.toString();

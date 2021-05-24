@@ -10,7 +10,7 @@ class Config {
   String sortOrder = C.SORT_NONE;
 
   Config._() {
-    var nextCard = new Strategies().buildStrategy('next');
+    var nextCard = new Strategies().buildStrategy(StrategyType.next_card);
     var p1 = new Player('You', nextCard, true, this);
     var p2 = new Player('Mozart', nextCard, false, this);
     var p3 = new Player('Chopin', nextCard, false, this);
