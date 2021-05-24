@@ -40,4 +40,12 @@ void main() {
 
     expect(result.value, 1);
   });
+  test('nearest card', () {
+    strategy = new Strategies().buildStrategy(StrategyType.nearest_card);
+
+    // test
+    var result = strategy.selectCard(cards, prizeCard, maxCard);
+
+    expect(result.value, 8);
+  });
 }

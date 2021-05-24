@@ -5,15 +5,21 @@ abstract class Strategy {
 }
 
 enum StrategyType {
-  next_card,
   max_card,
   min_card,
+  next_card,
+  nearest_card,
 }
 
 class Strategies {
   Strategy buildStrategy(StrategyType strategyType) {
     var strategy;
     switch (strategyType) {
+      case StrategyType.nearest_card:
+        {
+          strategy = new _NearestCard();
+        }
+        break;
       case StrategyType.next_card:
         {
           strategy = new _NextCard();
@@ -31,6 +37,21 @@ class Strategies {
         break;
     }
     return strategy;
+  }
+}
+
+class _NearestCard extends Strategy {
+  Card selectCard(List<Card> cards, int prizeCard, int maxCard) {
+    var result;
+    var nearestDistance = maxCard * 2;
+    cards.forEach((card) {
+      var distance = (card.value - prizeCard).abs();
+      if (distance < nearestDistance) {
+        result = card;
+        nearestDistance = distance;
+      }
+    });
+    return result;
   }
 }
 
