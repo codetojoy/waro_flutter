@@ -29,6 +29,10 @@ class Hand {
     }
   }
 
+  bool contains(Card card) {
+    return _cards.where((c) => c.value == card.value).toList().length > 0;
+  }
+
   Hand updateHand(Card choice) {
     var newCards = _cards.where((c) => c.value != choice.value).toList();
     var hand = new Hand(newCards);

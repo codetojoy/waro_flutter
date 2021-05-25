@@ -4,10 +4,10 @@ import './models/card.dart';
 import './models/config.dart';
 import './models/deck.dart';
 import './models/hand.dart';
-import './util/logger.dart';
 import './models/player.dart';
 import './models/players.dart';
 import './models/table.dart';
+import './util/logger.dart';
 
 class Dealer {
   final _config = Config.instance;
@@ -71,6 +71,13 @@ class Dealer {
     L.log('Dealer.pR ' + table.toString());
     return winningBid.player.name + ' won round ($prizeCard points)';
   }
+
+/*
+  TODO: stuck on async for ApiStrategy
+  List<Bid> findBids2(Table table, Card userCard) {
+    return new BidFetcher().findBids(table, userCard);
+  }
+  */
 
   List<Bid> findBids(Table table, Card userCard) {
     var prizeCard = table.prizeCard;

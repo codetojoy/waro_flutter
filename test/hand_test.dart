@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:waro_flutter/models/card.dart';
 import 'package:waro_flutter/models/deck.dart';
 import 'package:waro_flutter/models/hand.dart';
 import 'package:waro_flutter/util/constants.dart';
@@ -49,5 +50,24 @@ void main() {
     expect(hand.cards[index++].value, 3);
     expect(hand.cards[index++].value, 2);
     expect(hand.cards[index++].value, 1);
+  });
+
+  test('contains basic green', () {
+    // 1,3,2
+    final hand = new Hand(deck.cards);
+
+    // test
+    var result = hand.contains(new Card(2));
+
+    expect(result, true);
+  });
+  test('contains basic red', () {
+    // 1,3,2
+    final hand = new Hand(deck.cards);
+
+    // test
+    var result = hand.contains(new Card(7));
+
+    expect(result, false);
   });
 }

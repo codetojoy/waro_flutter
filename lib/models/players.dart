@@ -1,3 +1,4 @@
+import './card.dart';
 import './player.dart';
 
 class Players {
@@ -9,6 +10,20 @@ class Players {
     players.forEach((player) {
       player.newGame();
     });
+  }
+
+  Player findByCard(List<Player> players, Card card) {
+    var result;
+    var found = false;
+    players.forEach((player) {
+      if (!found && !player.isUser) {
+        found = player.hand.contains(card);
+        if (found) {
+          result = player;
+        }
+      }
+    });
+    return result;
   }
 
   Player findByHighestTotal(List<Player> players) {
