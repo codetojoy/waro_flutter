@@ -19,6 +19,7 @@ a Flutter submission for War-O as a code exercise
     - config 
         - X - sort-order preference
         - read from JSON file 
+        - ThemeData
     - full unit tests
     - styling
         - remove hardcode font size

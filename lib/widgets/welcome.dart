@@ -32,7 +32,7 @@ class Welcome extends StatelessWidget {
             ),
           ]),
           elevation: 20,
-          shadowColor: Colors.blue),
+          shadowColor: Theme.of(context).primaryColor),
       widthFactor: 0.8,
       heightFactor: 0.4,
       alignment: Alignment.center,
