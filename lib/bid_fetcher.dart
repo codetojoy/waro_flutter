@@ -21,7 +21,7 @@ class BidFetcher {
       if (!player.isUser) {
         L.log('TRACER 25-MAY cp abc $player');
         var offerFuture = player.selectCard(prizeCard);
-        offerFutures.add(offerFuture);
+        // offerFutures.add(offerFuture);
       } else {
         var bid = new Bid(player, userCard);
         bids.add(bid);
