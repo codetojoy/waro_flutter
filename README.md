@@ -5,6 +5,8 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - fold vs reduce
+    - about page with build info 
     - current styling is utilitarian and hideous
     - figure out centering and relative sizing
         - use Card with nice shadow
