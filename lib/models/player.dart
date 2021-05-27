@@ -21,6 +21,12 @@ class Player {
     _config = config;
   }
 
+  Player.simple(String name) {
+    _name = name;
+    _hand = new Hand([]);
+    _isUser = false;
+  }
+
   Player.kitty(String name, Hand hand, Strategy strategy) {
     _name = name;
     _strategy = strategy;

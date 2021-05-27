@@ -8,7 +8,6 @@ class Hand {
 
   get cards => _cards;
 
-  // TODO: sort-order should be a config setting?
   void sort(String sortOrder) {
     switch (sortOrder) {
       case C.SORT_NONE:

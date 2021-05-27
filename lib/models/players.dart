@@ -12,6 +12,7 @@ class Players {
     });
   }
 
+  // this is part of the WIP api strategy
   Player findByCard(List<Player> players, Card card) {
     var result;
     var found = false;
@@ -27,12 +28,8 @@ class Players {
   }
 
   Player findByHighestTotal(List<Player> players) {
-    var result = players[0];
-    players.forEach((player) {
-      if (player.playerStats.total > result.playerStats.total) {
-        result = player;
-      }
+    return players.reduce((acc, player) {
+      return (player.playerStats.total > acc.playerStats.total) ? player : acc;
     });
-    return result;
   }
 }
