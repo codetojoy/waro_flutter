@@ -91,12 +91,8 @@ class Dealer {
   }
 
   Bid findWinningBid(List<Bid> bids) {
-    Bid result = bids[0];
-    bids.forEach((bid) {
-      if (bid.offer.value > result.offer.value) {
-        result = bid;
-      }
+    return bids.reduce((acc, bid) {
+      return (bid.offer.value > acc.offer.value) ? bid : acc;
     });
-    return result;
   }
 }
