@@ -42,16 +42,16 @@ class Strategies {
 
 class _NearestCard extends Strategy {
   Card selectCard(List<Card> cards, int prizeCard, int maxCard) {
-    var result;
     var nearestDistance = maxCard * 2;
-    cards.forEach((card) {
+    return cards.reduce((acc, card) {
+      var result = acc;
       var distance = (card.value - prizeCard).abs();
       if (distance < nearestDistance) {
-        result = card;
         nearestDistance = distance;
+        result = card;
       }
+      return result;
     });
-    return result;
   }
 }
 

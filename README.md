@@ -5,6 +5,7 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - visible for testing - https://stackoverflow.com/questions/21657315
     - fold vs reduce
     - about page with build info 
     - current styling is utilitarian and hideous
