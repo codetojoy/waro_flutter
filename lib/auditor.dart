@@ -1,5 +1,5 @@
-import './util/logger.dart';
 import './models/table.dart' as waro_t;
+import './util/logger.dart';
 
 class Auditor {
   final _maxCard;

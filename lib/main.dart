@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './models/card.dart' as waro_c;
 import './models/config.dart';
 import './models/game.dart';
 import './util/logger.dart';
-import './util/time.dart';
 import './widgets/config_form.dart';
 import './widgets/tableau.dart';
 import './widgets/welcome.dart';
@@ -15,8 +15,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   String _version() {
-    var version = "24-MAY-2021-nhl";
-    var now = new Time().now();
+    var version = "v1";
+    var now = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
     return 'waro v $version $now';
   }
 
