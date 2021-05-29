@@ -86,8 +86,8 @@ class Dealer {
       table.updateDiscardTotal(offer);
       player.updateHand(offer);
       return new Bid(player, offer);
-    });
-    return bids.toList();
+    }).toList();
+    return bids;
   }
 
   Bid findWinningBid(List<Bid> bids) {

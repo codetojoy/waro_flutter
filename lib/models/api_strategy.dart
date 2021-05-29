@@ -17,21 +17,21 @@ class ApiStrategy {
   }
 
   Future<Card> fetchCard() async {
-      final host = 'localhost:8080';
-  final context = '/waro/strategy';
-  var prizeCard = 10;
-  var mode = 'max';
-  var maxCard = 12;
-  var cards = ['4', '6'];
-  var queryParams = {
-    'prize_card': '$prizeCard',
-    'mode': '$mode',
-    'max_card': '$maxCard',
-    'cards': cards,
-  };
-  print('TRACER cp 1 begin');
-  var url = Uri.http(host, context, queryParams);
-  final response = await http.get(url);
+    final host = 'localhost:8080';
+    final context = '/waro/strategy';
+    var prizeCard = 10;
+    var mode = 'max';
+    var maxCard = 12;
+    var cards = ['4', '6'];
+    var queryParams = {
+      'prize_card': '$prizeCard',
+      'mode': '$mode',
+      'max_card': '$maxCard',
+      'cards': cards,
+    };
+    print('TRACER cp 1 begin');
+    var url = Uri.http(host, context, queryParams);
+    final response = await http.get(url);
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,

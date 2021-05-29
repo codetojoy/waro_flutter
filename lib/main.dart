@@ -102,7 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: (_isGameInProgress())
             ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
-            : Welcome(_newGame)
-    );
+            : Welcome(_newGame));
   }
 }

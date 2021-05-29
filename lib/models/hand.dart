@@ -33,8 +33,9 @@ class Hand {
   }
 
   Hand updateHand(Card choice) {
-    var newCards = _cards.where((c) => c.value != choice.value).toList();
-    var hand = new Hand(newCards);
+    // var newCards = _cards.where((c) => c.value != choice.value).toList();
+    _cards.removeWhere((c) => c.value == choice.value);
+    var hand = new Hand(_cards);
     return hand;
   }
 
