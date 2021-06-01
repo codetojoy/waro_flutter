@@ -1,9 +1,9 @@
 import '../util/logger.dart';
 
 class Card {
-  int _value = 0;
+  final _value;
 
-  Card(this._value);
+  const Card(this._value);
 
   get value => _value;
 

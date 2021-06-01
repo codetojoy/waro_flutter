@@ -2,9 +2,9 @@ import './card.dart';
 import '../util/constants.dart';
 
 class Hand {
-  List<Card> _cards;
+  final List<Card> _cards;
 
-  Hand(this._cards);
+  const Hand(this._cards);
 
   get cards => _cards;
 
@@ -33,7 +33,6 @@ class Hand {
   }
 
   Hand updateHand(Card choice) {
-    // var newCards = _cards.where((c) => c.value != choice.value).toList();
     _cards.removeWhere((c) => c.value == choice.value);
     var hand = new Hand(_cards);
     return hand;

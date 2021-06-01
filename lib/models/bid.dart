@@ -2,10 +2,10 @@ import './card.dart';
 import './player.dart';
 
 class Bid {
-  Player _player;
-  Card _offer;
+  final Player _player;
+  final Card _offer;
 
-  Bid(this._player, this._offer);
+  const Bid(this._player, this._offer);
 
   Card get offer => _offer;
   Player get player => _player;
