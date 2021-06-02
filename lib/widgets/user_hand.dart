@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './card_widget.dart';
+import './card.dart';
 import '../models/card.dart' as waro_c;
 import '../models/hand.dart';
 
