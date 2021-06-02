@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './card_widget.dart';
 import '../models/card.dart' as waro_c;
 import '../models/hand.dart';
 import '../models/player.dart';
@@ -82,7 +83,7 @@ class _PrizeCardWidget extends StatelessWidget {
           Text('Prize:',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
-          _CardWidget(_prizeCard, _noOp, 'prize card'),
+          CardWidget(_prizeCard, _noOp, 'prize card'),
         ]),
         elevation: 5);
   }
@@ -97,11 +98,11 @@ class _UserHandWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cardWidgets = _hand.cards.map((waro_c.Card card) {
-      return _CardWidget(card, () => _playCardHandler(card), 'press to play');
+      return CardWidget(card, () => _playCardHandler(card), 'press to play');
     });
     return Center(
       child: Column(children: [
-        Text('Your hand:',
+        const Text('Your hand:',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
         Container(
@@ -152,25 +153,6 @@ class _PlayerInfoWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
       ],
-    );
-  }
-}
-
-class _CardWidget extends StatelessWidget {
-  final waro_c.Card _card;
-  final Function _selectHandler;
-  final String _tooltip;
-
-  _CardWidget(this._card, this._selectHandler, this._tooltip);
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: _selectHandler,
-      tooltip: _tooltip,
-      child: Text(_card.toString(),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
     );
   }
 }

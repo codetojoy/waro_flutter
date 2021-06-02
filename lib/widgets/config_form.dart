@@ -31,7 +31,7 @@ class ConfigFormState extends State<ConfigForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new TextFormField(
+          TextFormField(
             decoration: new InputDecoration(labelText: prompt),
             keyboardType: TextInputType.number,
             controller: _numCardsController,
@@ -48,7 +48,7 @@ class ConfigFormState extends State<ConfigForm> {
             ], // Only numbers can be entered
           ),
           DropdownButtonFormField(
-            decoration: new InputDecoration(labelText: 'sort order'),
+            decoration: const InputDecoration(labelText: 'sort order'),
             value: C.SORT_NONE,
             items: <String>[C.SORT_NONE, C.SORT_ASC, C.SORT_DESC]
                 .map<DropdownMenuItem<String>>((String value) {
@@ -71,10 +71,10 @@ class ConfigFormState extends State<ConfigForm> {
                   config.numCards = numCards;
                   config.sortOrder = _sortValue;
                   ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text('Saved!')));
+                      .showSnackBar(SnackBar(content: const Text('Saved!')));
                 }
               },
-              child: Text('Submit'),
+              child: const Text('Save'),
             ),
           ),
         ],

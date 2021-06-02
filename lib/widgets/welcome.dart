@@ -13,7 +13,7 @@ class Welcome extends StatelessWidget {
           child: Column(children: [
             Flexible(
                 child: FractionallySizedBox(
-              child: Text('War-O Flutter',
+              child: const Text('War-O Flutter',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               widthFactor: 0.5,
