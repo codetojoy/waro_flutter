@@ -5,7 +5,8 @@ import './card.dart';
 class Deck {
   final List<Card> _cards;
 
-  Deck(int numCards) : _cards = new List<Card>.generate(numCards, (i) => new Card(i + 1));
+  Deck(int numCards)
+      : _cards = new List<Card>.generate(numCards, (i) => new Card(i + 1));
 
   List<Card> get cards => _cards;
 

@@ -13,26 +13,26 @@ class Player {
   final PlayerStats _playerStats = new PlayerStats();
   final Config _config;
 
-  Player(String name, Strategy strategy, bool isUser, Config config) :
-    _name = name,
-    _strategy = strategy,
-    _hand = new Hand([]),
-    _isUser = isUser,
-    _config = config;
+  Player(String name, Strategy strategy, bool isUser, Config config)
+      : _name = name,
+        _strategy = strategy,
+        _hand = new Hand([]),
+        _isUser = isUser,
+        _config = config;
 
-  Player.simple(String name) :
-    _name = name,
-    _strategy = null,
-    _hand = new Hand([]),
-    _isUser = false,
-    _config = null;
+  Player.simple(String name)
+      : _name = name,
+        _strategy = null,
+        _hand = new Hand([]),
+        _isUser = false,
+        _config = null;
 
-  Player.kitty(String name, Hand hand, Strategy strategy) :
-    _name = name,
-    _strategy = strategy,
-    _hand = hand,
-    _isUser = false,
-    _config = null;
+  Player.kitty(String name, Hand hand, Strategy strategy)
+      : _name = name,
+        _strategy = strategy,
+        _hand = hand,
+        _isUser = false,
+        _config = null;
 
   List<Card> get cards => _hand.cards;
 
