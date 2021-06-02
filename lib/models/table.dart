@@ -4,8 +4,8 @@ import './players.dart';
 
 class Table {
   Kitty _kitty;
-  List<Player> _players;
-  String _status = '';
+  final List<Player> _players;
+  String status = '';
   int _discardTotal = 0;
 
   Table(this._kitty, this._players);
@@ -16,9 +16,6 @@ class Table {
   List<Player> get players => _players;
 
   waro_c.Card get prizeCard => _kitty.cards[0];
-
-  String get status => _status;
-  set status(String status) => _status = status;
 
   int get discardTotal => _discardTotal;
 
