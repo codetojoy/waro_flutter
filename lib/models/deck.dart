@@ -3,12 +3,9 @@ import 'dart:math';
 import './card.dart';
 
 class Deck {
-  int _numCards;
-  List<Card> _cards = [];
+  final List<Card> _cards;
 
-  Deck(this._numCards) {
-    _cards = new List<Card>.generate(_numCards, (i) => new Card(i + 1));
-  }
+  Deck(int numCards) : _cards = new List<Card>.generate(numCards, (i) => new Card(i + 1));
 
   List<Card> get cards => _cards;
 
