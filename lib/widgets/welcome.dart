@@ -37,23 +37,5 @@ class Welcome extends StatelessWidget {
       heightFactor: 0.4,
       alignment: Alignment.center,
     ));
-    /*
-            Card(
-              child: FractionallySizedBox(
-                child: Container(child: Text('War-O Flutter',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
-                  widthFactor: 0.5,
-                  heightFactor: 0.2,
-                  ),
-              elevation: 10,
-              shadowColor: Colors.blue,
-            ),
-          FloatingActionButton(
-            onPressed: _newGameHandler,
-            tooltip: 'New Game',
-            child: Icon(Icons.add),
-          ),
-          */
   }
 }
