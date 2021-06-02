@@ -56,10 +56,14 @@ class _StatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaWidth = MediaQuery.of(context).size.width;
     return Card(
-        child: Text(this._statusText,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: mediaWidth * 0.3, vertical: 10),
+            child: Text(this._statusText,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
         elevation: 5);
   }
 }
