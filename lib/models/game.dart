@@ -7,7 +7,7 @@ import '../dealer.dart';
 import '../util/logger.dart';
 
 class Game {
-  Dealer _dealer = new Dealer();
+  final Dealer _dealer = new Dealer();
   Table _table;
   bool _inProgress = false;
   Auditor _auditor;
