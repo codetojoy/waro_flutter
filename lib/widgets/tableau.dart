@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import './card_widget.dart';
 import './players_info_widget.dart';
+import './user_hand_widget.dart';
 import '../models/card.dart' as waro_c;
-import '../models/hand.dart';
 import '../models/table.dart' as waro_t;
 
 class Tableau extends StatelessWidget {
@@ -37,7 +37,7 @@ class Tableau extends StatelessWidget {
         children: [
           _StatusWidget(_table.status),
           _PrizeCardWidget(_table.prizeCard),
-          _UserHandWidget(_table.user.hand, _playCardHandler),
+          UserHandWidget(_table.user.hand, _playCardHandler),
           PlayersInfoWidget(_table.players),
           FloatingActionButton(
             onPressed: _cancelGameHandler,
@@ -80,7 +80,7 @@ class _PrizeCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: Column(children: [
-          Text('Prize:',
+          const Text('Prize:',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
           CardWidget(_prizeCard, _noOp, 'prize card'),
@@ -89,30 +89,5 @@ class _PrizeCardWidget extends StatelessWidget {
   }
 }
 
-class _UserHandWidget extends StatelessWidget {
-  final Hand _hand;
-  final Function _playCardHandler;
 
-  _UserHandWidget(this._hand, this._playCardHandler);
-
-  @override
-  Widget build(BuildContext context) {
-    var cardWidgets = _hand.cards.map((waro_c.Card card) {
-      return CardWidget(card, () => _playCardHandler(card), 'press to play');
-    });
-    return Center(
-      child: Column(children: [
-        const Text('Your hand:',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
-        Container(
-          height: 300,
-          child: ListView(children: [
-            ...cardWidgets,
-          ]),
-        ),
-      ]),
-    );
-  }
-}
 
