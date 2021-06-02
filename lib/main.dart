@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   String _version() {
     var version = "v1";
     var now = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
-    return 'waro v $version $now';
+    return 'waro $version $now';
   }
 
   @override
