@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import './card_widget.dart';
+import './players_info_widget.dart';
 import '../models/card.dart' as waro_c;
 import '../models/hand.dart';
-import '../models/player.dart';
 import '../models/table.dart' as waro_t;
 
 class Tableau extends StatelessWidget {
@@ -23,7 +23,7 @@ class Tableau extends StatelessWidget {
           child: Column(
             children: [
               _StatusWidget(_table.status),
-              _PlayersInfoWidget(_table.players),
+              PlayersInfoWidget(_table.players),
               FloatingActionButton(
                 onPressed: _newGameHandler,
                 tooltip: 'New Game',
@@ -38,7 +38,7 @@ class Tableau extends StatelessWidget {
           _StatusWidget(_table.status),
           _PrizeCardWidget(_table.prizeCard),
           _UserHandWidget(_table.user.hand, _playCardHandler),
-          _PlayersInfoWidget(_table.players),
+          PlayersInfoWidget(_table.players),
           FloatingActionButton(
             onPressed: _cancelGameHandler,
             tooltip: 'Quit Game',
@@ -116,43 +116,3 @@ class _UserHandWidget extends StatelessWidget {
   }
 }
 
-class _PlayersInfoWidget extends StatelessWidget {
-  final List<Player> _players;
-
-  _PlayersInfoWidget(this._players);
-
-  @override
-  Widget build(BuildContext context) {
-    var infoWidgets = _players.map((player) {
-      return _PlayerInfoWidget(player);
-    });
-    return Container(
-        child: Card(
-          child: Column(
-            children: [
-              ...infoWidgets,
-            ],
-          ),
-          elevation: 5,
-        ),
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40));
-  }
-}
-
-class _PlayerInfoWidget extends StatelessWidget {
-  final Player _player;
-
-  _PlayerInfoWidget(this._player);
-
-  @override
-  Widget build(BuildContext context) {
-    var text = _player.name + ' : ' + _player.playerStats.toString();
-    return Column(
-      children: [
-        Text(text,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-      ],
-    );
-  }
-}
