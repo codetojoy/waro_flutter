@@ -5,6 +5,7 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * TODO
+    - the app bar is probably not idiomatic
     - visible for testing - https://stackoverflow.com/questions/21657315
     - consider const constructors
     - fold vs reduce
@@ -45,6 +46,7 @@ To Run:
 * `./run.sh` for device emulator
 * `./run.web.sh` for Chrome
 * `./test.sh` for unit tests
+* `./format.sh` for code formatting
 
 Rules:
 ---------

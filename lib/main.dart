@@ -5,6 +5,7 @@ import './models/card.dart' as waro_c;
 import './models/config.dart';
 import './models/game.dart';
 import './util/logger.dart';
+import './widgets/about.dart';
 import './widgets/config_form.dart';
 import './widgets/tableau.dart';
 import './widgets/welcome.dart';
@@ -79,7 +80,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             body: ConfigForm(Config.instance),
           );
-        }, // ...to here.
+        },
+      ),
+    );
+  }
+
+  void _pushAbout() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('About'),
+            ),
+            body: About(),
+          );
+        },
       ),
     );
   }
@@ -97,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
           actions: [
-            IconButton(icon: Icon(Icons.list), onPressed: _pushConfig),
+            IconButton(icon: Icon(Icons.settings), onPressed: _pushConfig),
+            IconButton(icon: Icon(Icons.info), onPressed: _pushAbout),
           ],
         ),
         body: (_isGameInProgress())
