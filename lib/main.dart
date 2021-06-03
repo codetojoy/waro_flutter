@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import './models/card.dart' as waro_c;
 import './models/config.dart';
 import './models/game.dart';
+import './util/constants.dart';
 import './util/logger.dart';
 import './widgets/about.dart';
 import './widgets/config_form.dart';
@@ -15,22 +15,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  String _version() {
-    var version = "v1";
-    var now = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
-    return 'waro $version $now';
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: _version(),
+      title: C.TITLE,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         secondaryHeaderColor: Colors.black,
       ),
-      home: MyHomePage(title: _version()),
+      home: MyHomePage(title: C.TITLE),
     );
   }
 }
@@ -46,6 +40,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Game _game;
+  AppBar _appBar;
 
   void _newGame() {
     setState(() {
@@ -93,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
             appBar: AppBar(
               title: Text('About'),
             ),
-            body: About(),
+            body: About(_appBar),
           );
         },
       ),
@@ -109,14 +104,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _appBar = AppBar(
+      title: Text(widget.title),
+      actions: [
+        IconButton(icon: Icon(Icons.settings), onPressed: _pushConfig),
+        IconButton(icon: Icon(Icons.info), onPressed: _pushAbout),
+      ],
+    );
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: [
-            IconButton(icon: Icon(Icons.settings), onPressed: _pushConfig),
-            IconButton(icon: Icon(Icons.info), onPressed: _pushAbout),
-          ],
-        ),
+        appBar: _appBar,
         body: (_isGameInProgress())
             ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
             : Welcome(_newGame));
