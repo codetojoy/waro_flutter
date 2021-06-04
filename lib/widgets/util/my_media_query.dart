@@ -12,15 +12,19 @@ class MyMediaQuery {
   final auditor = new DoubleAuditor();
 
   MyMediaQuery(List<double> percentages, BuildContext context, AppBar appBar) {
-    MyMediaQuery.simple(context, appBar);
+    _init(context, appBar);
 
     _percentages = percentages;
-    values = _percentages.map((percentage) {
+    values = _percentages.map<double>((percentage) {
       return availableHeight * percentage;
     }).toList();
   }
 
   MyMediaQuery.simple(BuildContext context, AppBar appBar) {
+    _init(context, appBar);
+  }
+
+  void _init(BuildContext context, AppBar appBar) {
     var mediaQuery = MediaQuery.of(context);
     totalHeight = mediaQuery.size.height;
     totalWidth = mediaQuery.size.width;

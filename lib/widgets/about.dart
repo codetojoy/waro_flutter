@@ -16,7 +16,9 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var orientation = MediaQuery.of(context).orientation;
+    var isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    var orientation = (isLandscape) ? 'landscape' : 'portrait';
     var myMediaQuery = MyMediaQuery.simple(context, _appBar);
     var availableHeight = myMediaQuery.availableHeight;
     var totalHeight = myMediaQuery.totalHeight;
