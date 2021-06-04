@@ -1,47 +1,39 @@
 import 'package:flutter/material.dart';
-
-import './double_auditor.dart';
+import 'package:waro_flutter/widgets/util/my_sizer.dart';
 
 class MyMediaQuery {
-  List<double> values = [];
-  List<double> _percentages = [];
-  var availableHeight;
-  var totalHeight;
-  var totalWidth;
-
-  final auditor = new DoubleAuditor();
+  var _mySizer;
 
   MyMediaQuery(List<double> percentages, BuildContext context, AppBar appBar) {
-    _init(context, appBar);
-
-    _percentages = percentages;
-    values = _percentages.map<double>((percentage) {
-      return availableHeight * percentage;
-    }).toList();
+    _init(percentages, context, appBar);
   }
 
   MyMediaQuery.simple(BuildContext context, AppBar appBar) {
-    _init(context, appBar);
+    _init([], context, appBar);
   }
 
-  void _init(BuildContext context, AppBar appBar) {
-    var mediaQuery = MediaQuery.of(context);
-    totalHeight = mediaQuery.size.height;
-    totalWidth = mediaQuery.size.width;
-    final appBarHeight = appBar.preferredSize.height;
+  void _init(List<double> percentages, BuildContext context, AppBar appBar) {
+    final mediaQuery = MediaQuery.of(context);
     final topPaddingHeight = mediaQuery.padding.top;
-    availableHeight = totalHeight - (appBarHeight + topPaddingHeight);
+    final appBarHeight = appBar.preferredSize.height;
+    _mySizer = new MySizer(
+        percentages, mediaQuery.size, appBarHeight, topPaddingHeight);
   }
+
+  double get availableHeight => _mySizer.availableHeight;
+  double get totalHeight => _mySizer.totalHeight;
+  double get totalWidth => _mySizer.totalWidth;
+  List<double> get values => _mySizer.values;
 
   bool audit() {
-    return auditPercentages() && auditValues();
+    return _mySizer.audit();
   }
 
   bool auditPercentages() {
-    return auditor.auditPercentages(_percentages);
+    return _mySizer.auditPercentages();
   }
 
   bool auditValues() {
-    return auditor.auditValues(values, availableHeight);
+    return _mySizer.auditValues();
   }
 }

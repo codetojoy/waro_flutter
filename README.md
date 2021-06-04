@@ -4,6 +4,8 @@ waro_flutter
 a Flutter submission for War-O as a code exercise
 
 * work-in-progress
+* next
+    - unit test for MyMQ
 * TODO
     - the app bar is probably not idiomatic
     - visible for testing - https://stackoverflow.com/questions/21657315
