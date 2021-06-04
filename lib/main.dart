@@ -111,10 +111,25 @@ class _MyHomePageState extends State<MyHomePage> {
         IconButton(icon: Icon(Icons.info), onPressed: _pushAbout),
       ],
     );
+    var actionButton = (_isGameInProgress())
+        ? FloatingActionButton(
+            onPressed: _cancelGame,
+            tooltip: C.QUIT_GAME,
+            child: Icon(Icons.cancel),
+          )
+        : FloatingActionButton(
+            onPressed: _newGame,
+            tooltip: C.NEW_GAME,
+            child: Icon(Icons.add),
+          )
+        ;
+
     return Scaffold(
-        appBar: _appBar,
-        body: (_isGameInProgress())
-            ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
-            : Welcome(_appBar, _newGame));
+      appBar: _appBar,
+      body: (_isGameInProgress())
+          ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
+          : Welcome(_appBar ),
+      floatingActionButton: actionButton,
+    );
   }
 }

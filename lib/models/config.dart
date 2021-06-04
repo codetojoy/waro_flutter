@@ -4,7 +4,7 @@ import '../util/constants.dart';
 import '../util/logger.dart';
 
 class Config {
-  int numCards = 20;
+  int numCards = 28;
   List<Player> _players = [];
   // TODO: enum
   String sortOrder = C.SORT_NONE;

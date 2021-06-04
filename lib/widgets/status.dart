@@ -7,14 +7,18 @@ class StatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaWidth = MediaQuery.of(context).size.width;
+    var mediaQueryData = MediaQuery.of(context);
+    var mediaWidth = mediaQueryData.size.width;
+    var textStyle = Theme.of(context).textTheme.bodyText1;
+
     return Card(
         child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: mediaWidth * 0.3, vertical: 10),
-            child: Text(this._statusText,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(this._statusText,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                style: textStyle))),
         elevation: 5);
   }
 }

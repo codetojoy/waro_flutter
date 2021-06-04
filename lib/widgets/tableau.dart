@@ -10,6 +10,7 @@ class Tableau extends StatelessWidget {
   final waro_t.Table _table;
   final Function _playCardHandler;
   final Function _newGameHandler;
+  // TODO: remove?
   final Function _cancelGameHandler;
 
   Tableau(this._table, this._playCardHandler, this._newGameHandler,
@@ -39,11 +40,13 @@ class Tableau extends StatelessWidget {
           PrizeCardWidget(_table.prizeCard),
           UserHandWidget(_table.user.hand, _playCardHandler),
           PlayersInfoWidget(_table.players),
+          /*
           FloatingActionButton(
             onPressed: _cancelGameHandler,
             tooltip: 'Quit Game',
             child: Icon(Icons.cancel),
           ),
+          */
         ],
       ));
     }

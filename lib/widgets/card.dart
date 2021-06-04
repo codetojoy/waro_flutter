@@ -11,12 +11,13 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var textStyle = Theme.of(context).textTheme.headline1;
+    var textStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
     return FloatingActionButton(
       onPressed: _selectHandler,
       tooltip: _tooltip,
-      child: Text(_card.toString(),
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)),
+      child:
+          Text(_card.toString(), textAlign: TextAlign.center, style: textStyle),
     );
   }
 }
