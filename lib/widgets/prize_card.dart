@@ -13,10 +13,9 @@ class PrizeCardWidget extends StatelessWidget {
   Widget _buildLandscape(BuildContext context) {
     var textStyle = Theme.of(context).textTheme.bodyText1;
     return Card(
-        child: Center(child: Row(children: [
-          Text('Prize:',
-              textAlign: TextAlign.center,
-              style: textStyle),
+        child: Center(
+            child: Row(children: [
+          Text('Prize:', textAlign: TextAlign.center, style: textStyle),
           CardWidget(_prizeCard, _noOp, 'prize card'),
         ])),
         elevation: 5);
@@ -27,13 +26,13 @@ class PrizeCardWidget extends StatelessWidget {
     var mediaQueryData = MediaQuery.of(context);
     var mediaWidth = mediaQueryData.size.width;
     return Card(
-        child: Padding(padding: EdgeInsets.symmetric(horizontal: mediaWidth * 0.4, vertical: 10),
-        child: Column(children: [
-          Text('Prize:',
-              textAlign: TextAlign.center,
-              style: textStyle),
-          CardWidget(_prizeCard, _noOp, 'prize card'),
-        ])),
+        child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: mediaWidth * 0.4, vertical: 10),
+            child: Column(children: [
+              Text('Prize:', textAlign: TextAlign.center, style: textStyle),
+              CardWidget(_prizeCard, _noOp, 'prize card'),
+            ])),
         elevation: 5);
   }
 

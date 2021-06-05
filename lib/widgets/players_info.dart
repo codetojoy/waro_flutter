@@ -37,12 +37,13 @@ class PlayerInfoWidget extends StatelessWidget {
     final mediaQueryData = MediaQuery.of(context);
     final mediaWidth = mediaQueryData.size.width;
     final mediaHeight = mediaQueryData.size.height;
-    final text = sprintf("%s : %s", [_player.name, _player.playerStats.toString()]);
+    final text =
+        sprintf("%s : %s", [_player.name, _player.playerStats.toString()]);
     return Container(
-        padding: EdgeInsets.all(1),
-        width: mediaWidth * 0.95,
-        // height: mediaWidth * 0.1,
-        child: Text(text, textAlign: TextAlign.center, style: textStyle),
+      padding: EdgeInsets.all(1),
+      width: mediaWidth * 0.95,
+      // height: mediaWidth * 0.1,
+      child: Text(text, textAlign: TextAlign.center, style: textStyle),
     );
   }
 }

@@ -11,7 +11,8 @@ class MySizer {
 
   final auditor = new DoubleAuditor();
 
-  MySizer(List<double> percentages, Size size, double appBarHeight, double topPaddingHeight) {
+  MySizer(List<double> percentages, Size size, double appBarHeight,
+      double topPaddingHeight) {
     totalHeight = size.height;
     totalWidth = size.width;
     availableHeight = totalHeight - (appBarHeight + topPaddingHeight);

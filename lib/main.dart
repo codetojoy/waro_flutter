@@ -121,14 +121,13 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: _newGame,
             tooltip: C.NEW_GAME,
             child: Icon(Icons.add),
-          )
-        ;
+          );
 
     return Scaffold(
       appBar: _appBar,
       body: (_isGameInProgress())
           ? Tableau(_game.table, _playCard, _newGame)
-          : Welcome(_appBar ),
+          : Welcome(_appBar),
       floatingActionButton: actionButton,
     );
   }
