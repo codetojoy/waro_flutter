@@ -7,6 +7,7 @@ a Flutter submission for War-O as a code exercise
 * next
     - status is not sizing properly
     - once that is done, portrait should be OK
+    - landscape is a disaster right now
 * TODO
     - the app bar is probably not idiomatic
     - visible for testing - https://stackoverflow.com/questions/21657315

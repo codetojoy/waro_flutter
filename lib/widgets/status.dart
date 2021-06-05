@@ -12,13 +12,12 @@ class StatusWidget extends StatelessWidget {
     var textStyle = Theme.of(context).textTheme.bodyText1;
 
     return Card(
-        child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(this._statusText,
-                textAlign: TextAlign.center,
-                style: textStyle))),
-        elevation: 5);
+      child: Container(
+        padding: EdgeInsets.all(10),
+        width: mediaWidth * 0.95,
+        child: Text(_statusText, textAlign: TextAlign.center, style: textStyle),
+      ),
+      elevation: 5,
+    );
   }
 }

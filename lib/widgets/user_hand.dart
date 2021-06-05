@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './card.dart';
 import '../models/card.dart' as waro_c;
 import '../models/hand.dart';
-import '../util/logger.dart';
 
 class UserHandWidget extends StatelessWidget {
   final Hand _hand;
@@ -29,21 +28,25 @@ class UserHandWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildPortrait(BuildContext context,
-      MediaQueryData mediaQueryData, List<Widget> cardWidgets) {
-    L.log('TRACER UH.bP');
-    var textStyle = Theme.of(context).textTheme.bodyText1;
-    return Center(
-      child: Column(children: [
-        Text('Your hand:',
-            textAlign: TextAlign.center,
-            style: textStyle),
-        Container(
-          height: 200,
-          child: ListView(children: cardWidgets),
-        ),
-      ]),
-    );
+  Widget _buildPortrait(BuildContext context, MediaQueryData mediaQueryData,
+      List<Widget> cardWidgets) {
+    final textStyle = Theme.of(context).textTheme.bodyText1;
+    final heightPercentage = 0.4;
+    final mediaQueryData = MediaQuery.of(context);
+    final mediaHeight = mediaQueryData.size.height;
+    return LayoutBuilder(builder: (ctx, constraints) {
+      return Card(
+        child: Center(
+            child: Column(children: [
+          Text('Your hand:', textAlign: TextAlign.center, style: textStyle),
+          Container(
+            height: mediaHeight * heightPercentage,
+            child: ListView(children: cardWidgets),
+          ),
+        ])),
+        elevation: 5,
+      );
+    });
   }
 
   @override

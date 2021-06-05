@@ -12,7 +12,8 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // var textStyle = Theme.of(context).textTheme.headline1;
-    var textStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+    final fontSize = Theme.of(context).textTheme.headline4.fontSize;
+    var textStyle = TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold);
     return FloatingActionButton(
       onPressed: _selectHandler,
       tooltip: _tooltip,

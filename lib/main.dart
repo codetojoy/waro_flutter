@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: _appBar,
       body: (_isGameInProgress())
-          ? Tableau(_game.table, _playCard, _newGame, _cancelGame)
+          ? Tableau(_game.table, _playCard, _newGame)
           : Welcome(_appBar ),
       floatingActionButton: actionButton,
     );
