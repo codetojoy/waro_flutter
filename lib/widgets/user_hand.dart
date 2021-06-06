@@ -28,7 +28,8 @@ class UserHandWidget extends StatelessWidget {
                   child: Container(
                 height: mediaHeight * heightPercentage,
                 child: ListView(
-                    scrollDirection: Axis.horizontal, children: cardWidgets),
+                    scrollDirection: Axis.horizontal,
+                    children: cardWidgets),
               )),
             ])),
             elevation: C.ELEVATION,

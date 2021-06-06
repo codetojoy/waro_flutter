@@ -12,12 +12,15 @@ class PlayersInfoWidget extends StatelessWidget {
   Widget _buildLandscape(BuildContext context, List<Widget> infoWidgets) {
     final mediaQueryData = MediaQuery.of(context);
     final mediaWidth = mediaQueryData.size.width;
+    final mediaHeight = mediaQueryData.size.height;
     return Card(
         child: Container(
-            padding: EdgeInsets.all(10),
+            // padding: EdgeInsets.all(Cl),
+            // height: mediaHeight * 0.07,
             width: mediaWidth * 0.95,
-            child: Column(children: infoWidgets)),
-        elevation: 5);
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       children: infoWidgets)),
+        elevation: C.ELEVATION);
   }
 
   Widget _buildPortrait(BuildContext context, List<Widget> infoWidgets) {
@@ -49,8 +52,19 @@ class PlayerInfoWidget extends StatelessWidget {
 
   PlayerInfoWidget(this._player);
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildLandscape(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.bodyText2;
+    // final text = _player.name + ' : ' + _player.playerStats.toString();
+    // final text = sprintf("%-10s : %-7s", [_player.name, _player.playerStats.toString()]);
+    final mediaQueryData = MediaQuery.of(context);
+    final mediaWidth = mediaQueryData.size.width;
+    final mediaHeight = mediaQueryData.size.height;
+    final text =
+        sprintf("%s : %s", [_player.name, _player.playerStats.toString()]);
+    return Text(text, textAlign: TextAlign.center, style: textStyle);
+  }
+
+  Widget _buildPortrait(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.bodyText1;
     // final text = _player.name + ' : ' + _player.playerStats.toString();
     // final text = sprintf("%-10s : %-7s", [_player.name, _player.playerStats.toString()]);
@@ -65,5 +79,12 @@ class PlayerInfoWidget extends StatelessWidget {
       // height: mediaWidth * 0.1,
       child: Text(text, textAlign: TextAlign.center, style: textStyle),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQueryData = MediaQuery.of(context);
+    final isLandscape = mediaQueryData.orientation == Orientation.landscape;
+    return (isLandscape) ? _buildLandscape(context) : _buildPortrait(context);
   }
 }
