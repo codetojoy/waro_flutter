@@ -2,25 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
 
 import '../models/player.dart';
+import '../util/constants.dart';
+
 
 class PlayersInfoWidget extends StatelessWidget {
   final List<Player> _players;
 
   PlayersInfoWidget(this._players);
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildLandscape(BuildContext context, List<Widget> infoWidgets) {
     final mediaQueryData = MediaQuery.of(context);
     final mediaWidth = mediaQueryData.size.width;
-    final infoWidgets = _players.map((player) {
-      return PlayerInfoWidget(player);
-    }).toList();
     return Card(
         child: Container(
             padding: EdgeInsets.all(10),
             width: mediaWidth * 0.95,
             child: Column(children: infoWidgets)),
         elevation: 5);
+  }
+
+  Widget _buildPortrait(BuildContext context, List<Widget> infoWidgets) {
+    final mediaQueryData = MediaQuery.of(context);
+    final mediaWidth = mediaQueryData.size.width;
+    return Card(
+        child: Container(
+            padding: EdgeInsets.all(C.PADDING),
+            width: mediaWidth * C.WIDTH_PERCENTAGE,
+            child: Column(children: infoWidgets)),
+        elevation: C.ELEVATION);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQueryData = MediaQuery.of(context);
+    final isLandscape = mediaQueryData.orientation == Orientation.landscape;
+    final infoWidgets = _players.map((player) {
+      return PlayerInfoWidget(player);
+    }).toList();
+    return (isLandscape)
+        ? _buildLandscape(context, infoWidgets)
+        : _buildPortrait(context, infoWidgets);
   }
 }
 
