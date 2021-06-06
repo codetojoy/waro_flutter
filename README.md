@@ -1,7 +1,7 @@
 waro_flutter
 =========
 
-A Flutter submission for War-O as a code exercise. [Rules here](Rules.md) and collection of examples [here](https://github.com/peidevs/Resources/blob/master/Examples.md).
+A Flutter submission for War-O as a code exercise. Rules [here](Rules.md) and collection of examples [here](https://github.com/peidevs/Resources/blob/master/Examples.md).
 
 A work-in-progress: may not be 100% idiomatic (yet) in Flutter, or Dart.
 
