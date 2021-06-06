@@ -5,16 +5,12 @@ a Flutter submission for War-O as a code exercise
 
 * work-in-progress
 * next
-    - status is not sizing properly
-    - once that is done, portrait should be OK
-    - landscape is a disaster right now
 * TODO
+    - French / i18n
     - the app bar is probably not idiomatic
     - visible for testing - https://stackoverflow.com/questions/21657315
     - consider const constructors
     - fold vs reduce
-    - about page with build info 
-    - current styling is utilitarian and hideous
     - figure out centering and relative sizing
         - use Card with nice shadow
     - review encapsulation/Demeter
@@ -30,11 +26,10 @@ a Flutter submission for War-O as a code exercise
         - read from JSON file 
         - ThemeData
     - full unit tests
-    - styling
-        - remove hardcode font size
     - state management
     - clean up widgets
     - make idiomatic for Flutter, Dart 
+        - Cupertino
     - use a grid for cards when # of cards > N
         - use scrollable ListView ?
         - or GridView! 
