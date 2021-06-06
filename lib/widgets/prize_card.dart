@@ -20,12 +20,14 @@ class PrizeCardWidget extends StatelessWidget {
         width: kludge + (mediaWidth * C.WIDTH_PERCENTAGE),
         padding: EdgeInsets.all(C.PADDING),
         child: Card(
-            child: Row(children: [
-              Text(C.PRIZE, textAlign: TextAlign.center, style: textStyle),
-              CardWidget(_prizeCard, _noOp, C.PRIZE_TIP),
-            ],
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,),
+            child: Row(
+              children: [
+                Text(C.PRIZE, textAlign: TextAlign.center, style: textStyle),
+                CardWidget(_prizeCard, _noOp, C.PRIZE_TIP),
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+            ),
             elevation: C.ELEVATION));
   }
 

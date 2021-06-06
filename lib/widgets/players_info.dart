@@ -4,7 +4,6 @@ import 'package:sprintf/sprintf.dart';
 import '../models/player.dart';
 import '../util/constants.dart';
 
-
 class PlayersInfoWidget extends StatelessWidget {
   final List<Player> _players;
 

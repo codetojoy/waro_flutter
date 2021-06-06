@@ -19,18 +19,20 @@ class UserHandWidget extends StatelessWidget {
     final mediaHeight = mediaQueryData.size.height;
     return LayoutBuilder(builder: (ctx, constraints) {
       return new Container(
-        width: constraints.maxWidth * 0.95,
-        child: Card(
-        child: Center(
-            child: Column(children: [
-          Text(C.YOUR_HAND, textAlign: TextAlign.center, style: textStyle),
-          Center(child: Container(
-            height: mediaHeight * heightPercentage,
-            child: ListView(scrollDirection: Axis.horizontal, children: cardWidgets),
-          )),
-        ])),
-        elevation: C.ELEVATION,
-      ));
+          width: constraints.maxWidth * 0.95,
+          child: Card(
+            child: Center(
+                child: Column(children: [
+              Text(C.YOUR_HAND, textAlign: TextAlign.center, style: textStyle),
+              Center(
+                  child: Container(
+                height: mediaHeight * heightPercentage,
+                child: ListView(
+                    scrollDirection: Axis.horizontal, children: cardWidgets),
+              )),
+            ])),
+            elevation: C.ELEVATION,
+          ));
     });
   }
 
@@ -57,7 +59,8 @@ class UserHandWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> cardWidgets = _hand.cards.map<Widget>((waro_c.Card card) {
+    final List<Widget> cardWidgets =
+        _hand.cards.map<Widget>((waro_c.Card card) {
       return CardWidget(card, () => _playCardHandler(card), C.PLAY_TIP);
     }).toList();
     final mediaQueryData = MediaQuery.of(context);
