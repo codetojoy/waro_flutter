@@ -18,18 +18,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: C.TITLE,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        secondaryHeaderColor: Colors.black,
-      ),
-      home: MyHomePage(title: C.TITLE),
-    );
+        debugShowCheckedModeBanner: false,
+        title: C.TITLE,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          secondaryHeaderColor: Colors.black,
+        ),
+        // home: MyHomePage(title: C.TITLE));
+        initialRoute: MyHomePage.rootRoute,
+        /*
+        */
+        routes: {
+          MyHomePage.rootRoute : (ctx) => MyHomePage(title: C.TITLE),
+          ConfigForm.routeName : (ctx) => ConfigForm(),
+          About.routeName: (ctx) => About(),
+        });
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  static const rootRoute = '/';
+
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -66,33 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _pushConfig() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Config'),
-            ),
-            body: ConfigForm(Config.instance),
-          );
-        },
-      ),
-    );
+    Navigator.of(context).pushNamed(ConfigForm.routeName,
+        arguments: {'config': Config.instance});
   }
 
   void _pushAbout() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('About'),
-            ),
-            body: About(_appBar),
-          );
-        },
-      ),
-    );
+    Navigator.of(context).pushNamed(About.routeName);
   }
 
   void _cancelGame() {

@@ -5,10 +5,9 @@ import '../models/config.dart';
 import '../util/constants.dart';
 import '../util/logger.dart';
 
+// TODO: rename as Config or ConfigWidget
 class ConfigForm extends StatefulWidget {
-  Config _config;
-
-  ConfigForm(this._config);
+  static const routeName = '/config';
 
   @override
   ConfigFormState createState() {
@@ -23,7 +22,18 @@ class ConfigFormState extends State<ConfigForm> {
 
   @override
   Widget build(BuildContext context) {
-    var config = widget._config;
+    var routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, Object>;
+    var config = routeArgs['config'] as Config;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Config'),
+      ),
+      body: _buildForm(context, config),
+    );
+  }
+
+  Widget _buildForm(BuildContext context, Config config) {
     var numActors = config.numPlayers + 1;
     var prompt = 'Enter # of cards (divisible by $numActors)';
     return Form(

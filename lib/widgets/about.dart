@@ -3,9 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:waro_flutter/widgets/util/my_media_query.dart';
 
 class About extends StatelessWidget {
-  final AppBar _appBar;
-
-  About(this._appBar);
+  static const routeName = '/about';
 
   String _version() {
     var version = "v1";
@@ -16,10 +14,18 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appBar = AppBar(title: Text('About 2'));
+    return Scaffold(
+      appBar: appBar,
+      body: _build(context, appBar),
+    );
+  }
+
+  Widget _build(BuildContext context, AppBar appBar) {
     var isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     var orientation = (isLandscape) ? 'landscape' : 'portrait';
-    var myMediaQuery = MyMediaQuery.simple(context, _appBar);
+    var myMediaQuery = MyMediaQuery.simple(context, appBar);
     var availableHeight = myMediaQuery.availableHeight;
     var totalHeight = myMediaQuery.totalHeight;
     var totalWidth = myMediaQuery.totalWidth;
