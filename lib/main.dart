@@ -26,8 +26,6 @@ class MyApp extends StatelessWidget {
         ),
         // home: MyHomePage(title: C.TITLE));
         initialRoute: MyHomePage.rootRoute,
-        /*
-        */
         routes: {
           MyHomePage.rootRoute : (ctx) => MyHomePage(title: C.TITLE),
           ConfigForm.routeName : (ctx) => ConfigForm(),
@@ -76,11 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _pushConfig() {
     Navigator.of(context).pushNamed(ConfigForm.routeName,
-        arguments: {'config': Config.instance});
+        arguments: {C.CONFIG_PARAM: Config.instance});
   }
 
   void _pushAbout() {
-    Navigator.of(context).pushNamed(About.routeName);
+    Navigator.of(context).pushNamed(About.routeName,
+        arguments: {C.CONFIG_PARAM: Config.instance});
   }
 
   void _cancelGame() {

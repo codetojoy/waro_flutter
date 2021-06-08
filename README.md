@@ -27,5 +27,4 @@ Rules are [here](Rules.md).
 TODO:
 ---------
 
-* next
 * brain-dump of issues [here](TODO.md).

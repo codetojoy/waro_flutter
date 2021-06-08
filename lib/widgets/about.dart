@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:waro_flutter/models/config.dart';
+import 'package:waro_flutter/util/constants.dart';
 import 'package:waro_flutter/widgets/util/my_media_query.dart';
 
 class About extends StatelessWidget {
@@ -14,7 +16,7 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appBar = AppBar(title: Text('About 2'));
+    var appBar = AppBar(title: Text('About'));
     return Scaffold(
       appBar: appBar,
       body: _build(context, appBar),
@@ -22,6 +24,9 @@ class About extends StatelessWidget {
   }
 
   Widget _build(BuildContext context, AppBar appBar) {
+    var routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, Object>;
+    var config = routeArgs[C.CONFIG_PARAM] as Config;
     var isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     var orientation = (isLandscape) ? 'landscape' : 'portrait';
@@ -38,6 +43,8 @@ class About extends StatelessWidget {
           Text('total height: ${totalHeight}', style: textStyle),
           Text('available height: ${availableHeight}', style: textStyle),
           Text('total width: ${totalWidth}', style: textStyle),
+          Text('num cards: ${config.numCards}', style: textStyle),
+          Text('sort order: ${config.sortOrder}', style: textStyle),
         ])),
         elevation: 10);
   }

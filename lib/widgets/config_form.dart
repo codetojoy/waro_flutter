@@ -24,7 +24,7 @@ class ConfigFormState extends State<ConfigForm> {
   Widget build(BuildContext context) {
     var routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, Object>;
-    var config = routeArgs['config'] as Config;
+    var config = routeArgs[C.CONFIG_PARAM] as Config;
     return Scaffold(
       appBar: AppBar(
         title: Text('Config'),

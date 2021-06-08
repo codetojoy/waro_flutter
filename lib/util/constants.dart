@@ -18,4 +18,6 @@ class C {
   static const double ELEVATION = 5.0;
   static const double WIDTH_PERCENTAGE = 0.95;
   static const double PADDING = 10.0;
+
+  static const String CONFIG_PARAM = 'config';
 }
