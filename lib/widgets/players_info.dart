@@ -18,8 +18,9 @@ class PlayersInfoWidget extends StatelessWidget {
             // padding: EdgeInsets.all(Cl),
             // height: mediaHeight * 0.07,
             width: mediaWidth * 0.95,
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       children: infoWidgets)),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: infoWidgets)),
         elevation: C.ELEVATION);
   }
 
